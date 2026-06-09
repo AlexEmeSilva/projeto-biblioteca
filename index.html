@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblioteca na palma da mão</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ========== TELA 1: LOGIN ========== -->
+<div id="tela-login" class="tela ativa">
+  <div class="login-esquerda">
+    <!-- GIF de livros – substitua o src pelo seu GIF -->
+   <video controls width="=500">
+     <source src="Firefly Crie um GIF de uma espiral de livros caindo  669321.mp4" type="video/mp4">
+     </video>
+  </div>
+
+  <div class="login-direita">
+    <div class="login-box">
+
+      <div class="logo-area">
+        <img src="logo_biblioteca.png"  class="foto-circular"/>
+      </div>
+
+      <div class="divisor-titulo">
+        <span class="linha"></span>
+        <span class="titulo-login">LOGIN</span>
+        <span class="linha"></span>
+      </div>
+
+      <label class="campo-label">Nome</label>
+      <input type="text" id="login-nome" class="campo-input" placeholder="Seu nome completo"/>
+
+      <label class="campo-label">Senha</label>
+      <input type="password" id="login-senha" class="campo-input" placeholder="Número da matrícula"/>
+
+      <button class="btn-secundario" onclick="abrirEsqueceuSenha()">Criar nova senha</button>
+
+      <button class="btn-primario" onclick="fazerLogin()">Entrar</button>
+
+      <div class="divisor-link">
+        <span class="linha"></span>
+        <button class="btn-link" onclick="irPara('tela-cadastro-usuario')">Esqueceu a senha?</button>
+        <span class="linha"></span>
+      </div>
+
+      <button class="btn-primario" onclick="irPara('tela-cadastro-usuario')">Não tem uma conta? Criar conta</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== TELA 2: INICIAL ========== -->
+<div id="tela-inicial" class="tela">
+  <header class="topbar">
+    <span id="topbar-usuario">Olá, usuário</span>
+    <button class="btn-sair" onclick="sair()">Sair</button>
+  </header>
+
+  <div class="inicial-centro">
+  
+    <div class="escola-logo-area">
+      <div class="logo-area">
+        <img src="logo_biblioteca.png"  class="foto-circular"/>
+      </div>
+  </div>
+
+    <p class="inicial-frase">Olá <strong id="nome-boas-vindas">usuário</strong>! Bem-vindo a sua biblioteca na palma da mão!</p>
+
+    <div class="atalhos-grid">
+      <button class="atalho-btn" onclick="irPara('tela-geral-usuarios')">Usuários</button>
+      <button class="atalho-btn" onclick="irPara('tela-geral-livros')">Livros</button>
+      <button class="atalho-btn" onclick="irPara('tela-alugueis')">Aluguéis</button>
+      <button class="atalho-btn" onclick="irPara('tela-editoras')">Editoras</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== TELA 3: CADASTRO DE USUÁRIO ========== -->
+<div id="tela-cadastro-usuario" class="tela">
+  <header class="topbar">
+    <button class="btn-voltar" onclick="voltarTela()">← Voltar</button>
+    <span>Cadastro de Usuário</span>
+  </header>
+
+  <div class="form-centro">
+    <div class="foto-circular-area">
+      <img id="preview-foto-cadastro" src="" alt="Foto" class="foto-circular" onerror="this.style.display='none'" />
+      <div id="foto-placeholder-cadastro" class="foto-placeholder">Foto</div>
+      <label class="btn-secundario btn-foto" for="input-foto-cadastro">Alterar foto</label>
+      <input type="file" id="input-foto-cadastro" accept="image/*" style="display:none" onchange="previewFoto('input-foto-cadastro','preview-foto-cadastro','foto-placeholder-cadastro')" />
+    </div>
+
+    <div class="form-card">
+      <input class="campo-input" type="text"  id="cad-nome"         placeholder="Nome completo" />
+      <input class="campo-input" type="text"  id="cad-matricula"    placeholder="Matrícula" />
+      <input class="campo-input" type="text"  id="cad-cpf"          placeholder="CPF" />
+      <input class="campo-input" type="text"  id="cad-endereco"     placeholder="Endereço" />
+      <input class="campo-input" type="email" id="cad-email"        placeholder="E-mail" />
+      <input class="campo-input" type="tel"   id="cad-telefone"     placeholder="Telefone" />
+      <input class="campo-input" type="text"  id="cad-serie"        placeholder="Série" />
+      <input class="campo-input" type="text"  id="cad-curso"        placeholder="Curso" />
+
+      <select class="campo-input" id="cad-funcao">
+        <option value="">Função</option>
+        <option value="aluno">Aluno</option>
+        <option value="monitor">Monitor</option>
+        <option value="bibliotecario">Bibliotecário</option>
+      </select>
+
+      <input class="campo-input" type="text" id="cad-monitor"       placeholder="Monitor responsável" />
+      <input class="campo-input" type="text" id="cad-bibliotecario" placeholder="Bibliotecário responsável" />
+
+      <button class="btn-primario" onclick="salvarUsuario()">Salvar Cadastro</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== TELA 4: GERAL DE USUÁRIOS ========== -->
+<div id="tela-geral-usuarios" class="tela">
+  <header class="topbar">
+    <button class="btn-voltar" onclick="voltarTela()">← Voltar</button>
+    <span>Usuários</span>
+    <button class="btn-primario btn-sm" onclick="irPara('tela-cadastro-usuario')">+ Novo</button>
+  </header>
+
+  <div class="lista-centro">
+    <input class="campo-input busca" type="text" id="busca-usuario" placeholder="Pesquisar por nome..." oninput="filtrarUsuarios()" />
+    <div id="lista-usuarios" class="lista-cards"></div>
+  </div>
+</div>
+
+<!-- ========== TELA 5: PERFIL DO USUÁRIO ========== -->
+<div id="tela-perfil-usuario" class="tela">
+  <header class="topbar">
+    <button class="btn-voltar" onclick="voltarTela()">← Voltar</button>
+    <span>Perfil do Usuário</span>
+    <button id="btn-excluir-usuario" class="btn-danger btn-sm" onclick="excluirUsuarioAtual()" style="display:none">Excluir</button>
+  </header>
+
+  <div class="perfil-centro">
+    <img id="perfil-foto" src="" alt="Foto" class="foto-circular" onerror="this.style.display='none'" />
+    <div id="perfil-foto-placeholder" class="foto-placeholder">Foto</div>
+
+    <div class="perfil-info">
+      <p><span class="info-label">Nome:</span>         <span id="p-nome"></span></p>
+      <p><span class="info-label">Matrícula:</span>    <span id="p-matricula"></span></p>
+      <p><span class="info-label">CPF:</span>          <span id="p-cpf"></span></p>
+      <p><span class="info-label">Endereço:</span>     <span id="p-endereco"></span></p>
+      <p><span class="info-label">E-mail:</span>       <span id="p-email"></span></p>
+      <p><span class="info-label">Telefone:</span>     <span id="p-telefone"></span></p>
+      <p><span class="info-label">Série:</span>        <span id="p-serie"></span></p>
+      <p><span class="info-label">Curso:</span>        <span id="p-curso"></span></p>
+      <p><span class="info-label">Função:</span>       <span id="p-funcao"></span></p>
+    </div>
+
+    <button class="btn-secundario" onclick="verHistoricoUsuario()">Ver Histórico de Aluguéis</button>
+  </div>
+</div>
+
+                                               <!--  TELA 6: HISTÓRICO  -->
+<div id="tela-historico" class="tela">
+  <header class="topbar">
+    <button class="btn-voltar" onclick="voltarTela()">← Voltar</button>
+    <span>Histórico de Aluguéis</span>
+  </header>
+
+  <div class="lista-centro">
+    <div class="barra-acoes">
+      <input class="campo-input busca" type="text" id="busca-historico" placeholder="Pesquisar livro..." oninput="filtrarHistorico()" />
+      <button class="btn-secundario btn-sm" onclick="marcarDevolvido()">Devolvido</button>
+      <button class="btn-primario  btn-sm" onclick="irPara('tela-cadastro-aluguel')">+ Aluguel</button>
+    </div>
+    <div id="lista-historico" class="lista-cards"></div>
+  </div>
+</div>
+
+                                                <!--TELA 7: GERAL DE LIVROS -->
+<div id="tela-geral-livros" class="tela">
+  <header class="topbar">
+    <button class="btn-voltar" onclick="voltarTela()">← Voltar</button>
+    <span>Livros</span>
+    <button class="btn-primario btn-sm" onclick="irPara('tela-cadastro-livro')">+ Novo</button>
+  </header>
+
+  <div class="lista-centro">
+    <input class="campo-input busca" type="text" id="busca-livro" placeholder="Pesquisar livro..." oninput="filtrarLivros()" />
+    <div id="sugestoes-livros" class="sugestoes-box" style="display:none"></div>
+    <div id="lista-livros" class="lista-cards"></div>
+  </div>
+</div>
+
+<!--  TELA 8: DADOS DO LIVRO  -->
+<div id="tela-dados-livro" class="tela">
+  <header class="topbar">
+    <button class="btn-voltar" onclick="voltarTela()">← Voltar</button>
+    <span>Dados do Livro</span>
+    <button id="btn-excluir-livro" class="btn-danger btn-sm" onclick="excluirLivroAtual()" style="display:none">Excluir</button>
+  </header>
+
+  <div class="perfil-centro">
+    <div class="perfil-info livro-info">
+      <h2 id="l-nome" class="livro-titulo"></h2>
+      <p><span class="info-label">Autor:</span>           <span id="l-autor"></span></p>
+      <p><span class="info-label">Editora:</span>         <span id="l-editora"></span></p>
+      <p><span class="info-label">Código do livro:</span> <span id="l-codigo"></span></p>
+      <p><span class="info-label">Código da editora:</span><span id="l-cod-editora"></span></p>
+      <p><span class="info-label">ISBN:</span>            <span id="l-isbn"></span></p>
+      <p><span class="info-label">Categoria:</span>       <span id="l-categoria"></span></p>
+    </div>
+    <button class="btn-primario" onclick="alugarLivroAtual()">Registrar Aluguel</button>
+  </div>
+</div>
+
+<!--  TELA CADASTRO DE LIVRO (auxiliar) -->
+<div id="tela-cadastro-livro" class="tela">
+  <header class="topbar">
+    <button class="btn-voltar" onclick="voltarTela()">← Voltar</button>
+    <span>Cadastro de Livro</span>
+  </header>
+
+  <div class="lista-centro">
+    <div class="form-card">
+      <input class="campo-input" type="text" id="liv-nome"       placeholder="Nome do livro" />
+      <input class="campo-input" type="text" id="liv-autor"      placeholder="Autor" />
+      <input class="campo-input" type="text" id="liv-editora"    placeholder="Editora" />
+      <input class="campo-input" type="text" id="liv-codigo"     placeholder="Código do livro" />
+      <input class="campo-input" type="text" id="liv-cod-edit"   placeholder="Código da editora" />
+      <input class="campo-input" type="text" id="liv-isbn"       placeholder="ISBN" />
+      <input class="campo-input" type="text" id="liv-categoria"  placeholder="Categoria" />
+      <button class="btn-primario" onclick="salvarLivro()">Salvar Livro</button>
+    </div>
+  </div>
+</div>
+
+                                                    <!-- TELA 9: LIVROS ALUGADOS -->
+<div id="tela-alugueis" class="tela">
+  <header class="topbar">
+    <button class="btn-voltar" onclick="voltarTela()">← Voltar</button>
+    <span>Livros Alugados</span>
+    <button class="btn-primario btn-sm" onclick="irPara('tela-cadastro-aluguel')">+ Novo</button>
+  </header>
+
+  <div class="lista-centro">
+    <input class="campo-input busca" type="text" id="busca-aluguel" placeholder="Pesquisar livro alugado..." oninput="filtrarAlugueis()" />
+    <div id="lista-alugueis" class="lista-cards"></div>
+  </div>
+</div>
+
+                                       <!--  TELA 10: CADASTRO DE ALUGUEL  -->
+<div id="tela-cadastro-aluguel" class="tela">
+  <header class="topbar">
+    <button class="btn-voltar" onclick="voltarTela()">← Voltar</button>
+    <span>Cadastro de Aluguel</span>
+  </header>
+
+  <div class="lista-centro">
+    <div class="form-card">
+      <input class="campo-input" type="text" id="alug-livro"     placeholder="Nome do livro" />
+      <input class="campo-input" type="text" id="alug-aluno"     placeholder="Nome do aluno" />
+      <input class="campo-input" type="date" id="alug-data"      />
+      <input class="campo-input" type="text" id="alug-codigo"    placeholder="Código do aluguel" />
+      <input class="campo-input" type="text" id="alug-devolucao" placeholder="Período de devolução" />
+      <button class="btn-primario" onclick="salvarAluguel()">Salvar Aluguel</button>
+    </div>
+  </div>
+</div>
+
+                                                           <!--  TELA 11: EDITORAS  -->
+<div id="tela-editoras" class="tela">
+  <header class="topbar">
+    <button class="btn-voltar" onclick="voltarTela()">← Voltar</button>
+    <span>Editoras</span>
+    <button class="btn-primario btn-sm" onclick="abrirCadEditora()">+ Nova</button>
+  </header>
+
+  <div class="lista-centro">
+    <input class="campo-input busca" type="text" id="busca-editora" placeholder="Pesquisar editora..." oninput="filtrarEditoras()" />
+    <div id="lista-editoras" class="lista-cards"></div>
+  </div>
+</div>
+
+<!---- TELA 12: LIVROS DA EDITORA ========== -->
+<div id="tela-livros-editora" class="tela">
+  <header class="topbar">
+    <button class="btn-voltar" onclick="voltarTela()">← Voltar</button>
+    <span id="titulo-editora-selecionada">Livros da Editora</span>
+  </header>
+
+  <div class="lista-centro">
+    <div id="lista-livros-editora" class="lista-cards"></div>
+  </div>
+</div>
+
+<div id="modal-overlay" class="modal-overlay" onclick="fecharModal()">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <p id="modal-msg"></p>
+    <div id="modal-input-area"></div>
+    <div class="modal-botoes">
+      <button class="btn-primario" id="modal-btn-ok" onclick="fecharModal()">OK</button>
+      <button class="btn-secundario" id="modal-btn-cancelar" onclick="fecharModal()" style="display:none">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

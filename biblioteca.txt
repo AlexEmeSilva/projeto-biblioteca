@@ -1,0 +1,222 @@
+Site da Biblioteca 
+
+Informações gerais do site:
+todo o site deve estar nas cores: (#56070C) sendo a cor principal do site e (#F7E6CA) sendo a cor secundária que vai servir para os botões e outras partes do site as letras devem sempre contrastar com o fundo 
+
+a senha é o numero da matricula do usuario
+
+NÃO deve ter emojis no site
+ 
+o site deve ser feito em HTML, CSS e JavaScript (SEPARADOS) com codigoS extremamente organizados e separando organizadamente cada tela 
+ 
+ao vc logar na sua conta vc vai direto para a tela inicial 
+
+caso vc nao tenha uma conta vc vai para a tela de cadastro de usuario e depois vai para a tela inicial
+
+vc deve deixar o espaço para eu adcionar o banco de dados, as mídias e os cadastros
+
+SE VC PUDER FAZER COMANDOS SIMPLES EU AGRADEÇO ;)
+
+
+so quem tera acesso a esse site sao os monitores e a Bibliotecária que é uma professora responsável. só eles terão acesso ao site então so eles podem se cadastrar ou cadastrar alguem. e as funçoes de excluir sao somente da bibliotecaria
+os alunos serao cadastrados mas nao terao acesso ao site 
+
+PRIMEIRA TELA (TELA DE LOGIN)
+
+Do lado esquerdo da tela deve ser um GIF de uma espiral livros caindo
+No lado direito tem um retângulo pontilhado em pé, em cima tem a logo do estado de Ceará centralizado transparente(que você deve deixar um lugar no código para eu adicionar a logo), embaixo da logo tem dois traços centralizado mais uma no lado esquerdo outra no lado direito e o nome login na cor branca no meio delas duas
+Em baixo tem um pontilhado em forma retangular, em cima do retângulo no lado esquerdo escrito " nome" escrito, em baixo outro retângulo pontilhado cor dourada, em cima do retângulo no lado esquerdo escrito "senha" escrito, em baixo um botão quadrado na, na frente escrito "criar nova senha", embaixo no centro um botão dourado escrito "entrar", em baixo dois traços centralizados no meio deles dois com um botão escrito "esqueceu a senha", em baixo no centro um botão dourado escrito" não tem uma conta? "criar conta" 
+
+SEGUNDA TELA ( TELA INICIAL)
+
+No centro o símbolo da escola (que você deve deixar um lugar no código para eu adicionar depois)
+Frase centralizada escrita "Olá usuário! Bem-vindo a sua biblioteca na palma da mão!"
+Quatro botões de atalho para outras telas
+
+No lado esquerdo um botão dentro escrito "usuários"
+Em baixo outro botão na cor bege dentro escrito "livros"
+No lado direito um botão na cor bege dentro escrito" aluguéis "
+
+TERCEIRA TELA ( CADASTRO DO USUÁRIOS)
+
+No centro uma foto em formato circular com um atalho para mudar a foto
+Em baixo botões para preencher as informações
+Primeiro com o nome completo
+Segundo com a matrícula
+Terceiro com o CPF
+Quarto com o endereço
+Quinto com o email
+Sexto com o telefone
+Sétimo com série
+Oitava com o curso
+Nona com a função
+Décima com o monitor
+Décima primeira com o bibliotecário
+
+QUARTA TELA ( TELA GERAL)
+
+Barra de pesquisa no centro com atalho para uma lista na cor com opções de cada usuário separadas necessariamente com o nome completo do usuário e todas as informações que necessariamente estejam cadastrados no site
+
+QUINTA TELA (TELA ALUNO)
+Quando o usuário for selecionado na lista da quarta tela ele será direcionado para essa tela com todas as informações do usuário
+No centro a foto em formato circular
+Embaixo escrito as informações do usuário
+O nome completo
+Matrícula
+CPF
+Endereço
+Email
+Telefone
+Série
+Curso
+Função 
+Todas as informações no lado esquerdo todas centralizadas 
+
+SEXTA TELA ( HISTÓRICO)
+
+Barra de pesquisa com a escrita preta centralizado
+Necessário escrever na barra de pesquisa o nome do livro, A data em que o livro foi retirado da biblioteca, ao lado da Barra de pesquisa tem um botão bege para marca se o livro que foi retirado já foi devolvido para biblioteca ou não, ao lado desse botão tem que ter outro botão bege para adicionar um novo aluguel de livro
+Abaixo da Barra de pesquisa um lista com as opções de nome do livros a data de retirada e que necessariamente estejam cadastrados no site
+
+SETIMA TELA – Tela Geral dos Livros
+Objetivo da tela
+Essa tela permitirá que o usuário pesquise livros cadastrados no sistema e encontre rapidamente o livro desejado.
+Estrutura visual
+Área principal
+No centro da página haverá um retângulo grande 
+O retângulo ficará centralizado na tela.
+Campos dentro do retângulo
+Barra de pesquisa
+Campo para o usuário digitar o nome do livro desejado.
+Lista de sugestões
+Abaixo da barra de pesquisa aparecerá uma lista contendo:
+nomes de livros semelhantes ao texto digitado;
+livros já cadastrados no sistema;
+opções para facilitar a busca correta do usuário.
+Nome do livro
+Após selecionar um livro, o nome do livro aparecerá destacado na tela.
+Organização
+Todos os elementos ficarão organizados verticalmente.
+A barra de pesquisa ficará na parte superior do retângulo.
+A lista de sugestões aparecerá abaixo da barra de pesquisa.
+O nome do livro selecionado ficará em destaque.
+
+Funcionamento
+O usuário digita o nome do livro na barra de pesquisa.
+O sistema exibe sugestões de livros semelhantes cadastrados no site.
+O usuário seleciona o livro desejado.
+O sistema encaminha para a tela de dados do livro.
+
+OITAVA TELA – Tela de Dados do Livro
+Objetivo da tela essa tela permitirá visualizar todas as informações completas do livro selecionado.
+Estrutura visual
+Plano de fundo
+Área principal
+O retângulo ficará centralizado.
+Campos dentro do retângulo
+Informações do livro
+Nome do livro;
+Autor do livro;
+Editora do livro;
+Código do livro;
+Código da editora;
+ISBN;
+Categoria do livro.
+Organização
+Todas as informações ficarão organizadas verticalmente.
+Cada campo terá espaçamento adequado.
+O nome do livro ficará destacado no topo das informações.
+Funcionamento
+O usuário seleciona o livro desejado na tela de pesquisa.
+O sistema abre a tela de dados do livro.
+Todas as informações cadastradas do livro serão exibidas.
+O usuário poderá visualizar os dados completos do livro selecionado.
+
+NONA TELA – Livros Alugados
+Objetivo da tela:
+Essa tela servirá para mostrar ao usuário todos os livros que estão alugados. O usuário poderá pesquisar pelo nome do livro alugado para localizar mais rapidamente o livro desejado.
+Estrutura visual da tela
+Plano de fundo
+Essa cor ocupará toda a tela como plano de fundo principal.
+Barra de pesquisa
+Na parte superior da tela haverá uma barra de pesquisa.
+A barra ficará posicionada próxima ao canto superior da página, com espaço das bordas.
+Dentro dela o usuário poderá digitar o nome do livro alugado.
+Exemplo:
+"Digite o nome do livro alugado"
+Área de exibição dos livros alugados
+Abaixo da barra de pesquisa haverá um retângulo grande horizontal (deitado).
+O retângulo ocupará quase toda a largura da tela, deixando apenas pequenas margens nas laterais.
+Dentro dele aparecerão os livros alugados encontrados.
+Informações exibidas dentro do retângulo
+Nome do livro;
+Nome do aluno;
+Data do aluguel;
+Situação do livro.
+Organização
+Os livros aparecerão em formato de lista organizada.
+Cada livro ficará separado por espaços para facilitar a leitura.
+Funcionamento
+O usuário digita o nome do livro na barra de pesquisa.
+O sistema procura livros semelhantes.
+Os livros encontrados aparecem dentro do retângulo.
+Ao selecionar um livro, o usuário será encaminhado para as informações do aluguel.
+
+DÉCIMA TELA – Cadastro de Aluguel
+Objetivo da tela:
+Essa tela permitirá registrar um novo aluguel de livro no sistema.
+Estrutura visual
+Plano de fundo
+Área principal
+No centro da página haverá um retângulo grande na cor
+O retângulo ficará centralizado.
+Campos dentro do retângulo
+Nome do livro:
+Nome do aluno:
+Data:
+Código do aluguel:
+Período de devolução:
+Organização
+Todos os campos ficarão organizados verticalmente.
+Cada campo terá espaçamento adequado.
+Funcionamento
+O usuário pesquisa o livro.
+Seleciona o livro desejado.
+Preenche as informações do aluno.
+Informa a data.
+O sistema salva o cadastro do aluguel.
+
+DÉCIMA PRIMEIRA TELA – Editoras
+Objetivo da tela:
+Essa tela permitirá que o usuário pesquise uma editora cadastrada.
+Estrutura visual
+Plano de fundo
+Barra de pesquisa
+Dentro dela será digitado o nome da editora.
+Área de resultados
+Informações exibidas
+Nome da editora;
+Código da editora;
+Quantidade de livros cadastrados.
+Organização
+Os nomes das editoras aparecerão em formato de lista.
+Funcionamento
+O usuário digita o nome da editora.
+O sistema mostra opções semelhantes.
+O usuário escolhe a editora.
+O sistema encaminha para a tela dos livros daquela editora.
+
+DÉCIMA SEGUNDA TELA – Nome dos Livros
+Objetivo da tela:
+Essa tela exibirá todos os livros pertencentes à editora selecionada.
+Estrutura visual
+Plano de fundo
+Área principal
+Informações exibidas
+Lista com todos os livros da editora selecionada.
+Organização
+Os livros aparecerão organizados em lista vertical.
+Funcionamento
+O usuário seleciona uma editora.
+O sistema abre a tela.
+Todos os livros cadastrados daquela editora serão exibidos.

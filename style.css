@@ -1,0 +1,521 @@
+/* ============================================================
+   VARIÁVEIS E RESET
+   ============================================================ */
+:root {
+  --vermelho:  #56070C;
+  --bege:      #F7E6CA;
+  --bege-esc:  #e8cfa5;
+  --branco:    #ffffff;
+  --texto-claro: #F7E6CA;
+  --sombra:    0 4px 24px rgba(0,0,0,0.35);
+  --radius:    10px;
+  --font-main: 'Georgia', serif;
+  --trans:     0.22s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-main);
+  background: var(--vermelho);
+  color: var(--texto-claro);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   SISTEMA DE TELAS
+   ============================================================ */
+.tela {
+  display: none;
+  min-height: 100vh;
+  flex-direction: column;
+  background: var(--vermelho);
+  animation: fadeIn 0.3s ease;
+}
+.tela.ativa { display: flex; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   TOPBAR
+   ============================================================ */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: rgba(0,0,0,0.25);
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  color: var(--bege);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* ============================================================
+   BOTÕES
+   ============================================================ */
+.btn-primario {
+  background: var(--bege);
+  color: var(--vermelho);
+  border: none;
+  border-radius: var(--radius);
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-family: var(--font-main);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background var(--trans), transform var(--trans);
+  width: 100%;
+  margin-top: 10px;
+}
+.btn-primario:hover { background: var(--bege-esc); transform: scale(1.02); }
+
+.btn-secundario {
+  background: transparent;
+  color: var(--bege);
+  border: 2px dashed var(--bege);
+  border-radius: var(--radius);
+  padding: 10px 24px;
+  font-size: 0.95rem;
+  font-family: var(--font-main);
+  cursor: pointer;
+  transition: background var(--trans);
+  width: 100%;
+  margin-top: 10px;
+}
+.btn-secundario:hover { background: rgba(247,230,202,0.1); }
+
+.btn-link {
+  background: transparent;
+  color: var(--bege);
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: var(--font-main);
+  padding: 0 8px;
+  white-space: nowrap;
+}
+
+.btn-voltar {
+  background: transparent;
+  color: var(--bege);
+  border: 1px solid var(--bege);
+  border-radius: 6px;
+  padding: 6px 16px;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  transition: background var(--trans);
+}
+.btn-voltar:hover { background: rgba(247,230,202,0.15); }
+
+.btn-sair {
+  background: transparent;
+  color: var(--bege);
+  border: 1px solid var(--bege);
+  border-radius: 6px;
+  padding: 6px 16px;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+}
+
+.btn-sm { width: auto; padding: 8px 18px; margin-top: 0; }
+
+.btn-danger {
+  background: #8b0000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 16px;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+}
+.btn-danger:hover { background: #a00000; }
+
+/* ============================================================
+   CAMPOS DE INPUT
+   ============================================================ */
+.campo-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--bege);
+  margin: 10px 0 3px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.campo-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px dashed var(--bege);
+  color: var(--bege);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  padding: 8px 4px;
+  outline: none;
+  transition: border-color var(--trans);
+  margin-bottom: 6px;
+}
+.campo-input::placeholder { color: rgba(247,230,202,0.5); }
+.campo-input:focus { border-bottom-color: #fff; }
+.campo-input option { color: var(--vermelho); background: var(--bege); }
+
+input[type="date"].campo-input { color-scheme: dark; }
+
+/* ============================================================
+   TELA DE LOGIN
+   ============================================================ */
+#tela-login {
+  flex-direction: row;
+}
+
+.login-esquerda {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+#gif-livros {
+  width: 90%;
+  max-width: 420px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.login-direita {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 420px;
+  border: 2px dashed var(--bege);
+  border-radius: 16px;
+  padding: 36px 32px;
+  background: rgba(0,0,0,0.18);
+}
+
+.logo-area {
+  text-align: center;
+  margin-bottom: 18px;
+}
+#logo-ceara { max-width: 100px; opacity: 0.85; }
+#logo-placeholder {
+  color: rgba(247,230,202,0.55);
+  font-size: 0.8rem;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.divisor-titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 20px;
+}
+.divisor-titulo .linha, .divisor-link .linha {
+  flex: 1;
+  height: 1px;
+  background: var(--bege);
+  opacity: 0.5;
+}
+.titulo-login {
+  color: var(--branco);
+  font-size: 1.3rem;
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+}
+
+.divisor-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+/* ============================================================
+   TELA INICIAL
+   ============================================================ */
+.inicial-centro {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  gap: 24px;
+}
+
+.escola-logo-area {
+  text-align: center;
+}
+#logo-escola { max-width: 140px; opacity: 0.9; }
+#escola-placeholder {
+  color: rgba(247,230,202,0.55);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.inicial-frase {
+  font-size: 1.25rem;
+  text-align: center;
+  max-width: 560px;
+  line-height: 1.6;
+  color: var(--bege);
+}
+
+.atalhos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.atalho-btn {
+  background: var(--bege);
+  color: var(--vermelho);
+  border: none;
+  border-radius: var(--radius);
+  padding: 28px 16px;
+  font-size: 1.15rem;
+  font-family: var(--font-main);
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: var(--sombra);
+  transition: background var(--trans), transform var(--trans);
+}
+.atalho-btn:hover { background: var(--bege-esc); transform: scale(1.04); }
+
+/* ============================================================
+   FOTO CIRCULAR
+   ============================================================ */
+.foto-circular-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.foto-circular {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: fill;
+  border: 3px solid var(--bege);
+}
+.foto-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px dashed var(--bege);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: rgba(247,230,202,0.6);
+}
+.btn-foto { width: auto; padding: 8px 20px; }
+
+/* ============================================================
+   FORMULÁRIOS (CARD CENTRALIZADO)
+   ============================================================ */
+.form-centro {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 20px;
+  overflow-y: auto;
+}
+
+.form-card {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ============================================================
+   LISTAS
+   ============================================================ */
+.lista-centro {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+  gap: 14px;
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.busca { font-size: 1.05rem; }
+
+.barra-acoes {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.barra-acoes .campo-input { flex: 1; margin-bottom: 0; }
+
+.lista-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.card-item {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(247,230,202,0.25);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: background var(--trans), border-color var(--trans);
+}
+.card-item:hover {
+  background: rgba(247,230,202,0.12);
+  border-color: var(--bege);
+}
+.card-item h3 {
+  font-size: 1rem;
+  color: var(--bege);
+  margin-bottom: 4px;
+}
+.card-item p {
+  font-size: 0.85rem;
+  color: rgba(247,230,202,0.7);
+  margin: 1px 0;
+}
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-top: 4px;
+  font-weight: bold;
+}
+.badge-devolvido  { background: #2e7d32; color: #fff; }
+.badge-pendente   { background: #b71c1c; color: #fff; }
+
+/* ============================================================
+   SUGESTÕES DE BUSCA
+   ============================================================ */
+.sugestoes-box {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid var(--bege);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.sugestao-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  color: var(--bege);
+  font-size: 0.95rem;
+  transition: background var(--trans);
+}
+.sugestao-item:hover { background: rgba(247,230,202,0.15); }
+
+/* ============================================================
+   PERFIL
+   ============================================================ */
+.perfil-centro {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 36px 28px;
+  gap: 12px;
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.perfil-info p {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(247,230,202,0.15);
+  font-size: 1rem;
+  color: var(--bege);
+}
+.info-label {
+  font-weight: bold;
+  color: var(--bege-esc);
+  margin-right: 8px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+.livro-titulo {
+  font-size: 1.5rem;
+  color: var(--bege);
+  margin-bottom: 12px;
+  border-bottom: 2px solid var(--bege);
+  padding-bottom: 8px;
+}
+.livro-info { width: 100%; }
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.aberto { display: flex; }
+
+.modal-box {
+  background: var(--vermelho);
+  border: 2px dashed var(--bege);
+  border-radius: 14px;
+  padding: 36px 32px;
+  max-width: 400px;
+  width: 92%;
+  color: var(--bege);
+  font-size: 1rem;
+  text-align: center;
+}
+#modal-msg { margin-bottom: 18px; line-height: 1.6; }
+.modal-botoes {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+}
+.modal-botoes .btn-primario,
+.modal-botoes .btn-secundario { width: auto; margin-top: 0; padding: 10px 28px; }
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width: 680px) {
+  #tela-login { flex-direction: column; }
+  .login-esquerda { min-height: 220px; }
+  #gif-livros { width: 200px; }
+  .atalhos-grid { grid-template-columns: 1fr; }
+  .barra-acoes { flex-wrap: wrap; }
+}
